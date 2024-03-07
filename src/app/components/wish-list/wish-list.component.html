@@ -1,0 +1,69 @@
+<div class="row bg-main-light py-5 rounded-5 justify-content-center">
+  <div class="col-md-11">
+    <div class="row">
+      <!-- //title -->
+      <div
+        class="mb-4 col-md-12 d-flex justify-content-between align-items-center flex-row"
+      >
+        <h3 class="cart-title text-capitalize">My wish List</h3>
+      </div>
+
+      <!-- //product info-------------------------------------------- -->
+      <div
+        class="row mb-3 pb-3 border-bottom"
+        *ngFor="let product of wishlistProducts"
+      >
+        <div
+          class="col-md-12 d-flex justify-content-between align-items-center"
+        >
+          <div class="col-md-2">
+            <div class="cartImg-layer rounded-4">
+              <img
+                [src]="product.imageCover"
+                [alt]="product.title"
+                class="w-100 rounded-3"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-9">
+            <div
+              class="col-md-12 d-flex justify-content-between align-items-center"
+            >
+              <div class="col-md-8">
+                <p class="text-capitalize price-text m-0 p-0">
+                  {{ product.title }}
+                </p>
+              </div>
+              <div
+                class="col-md-3 d-flex justify-content-end align-items-center"
+              >
+                <button
+                  class="btn price-text add-box py-2 text-capitalize"
+                  (click)="addCartProduct(product._id)"
+                >
+                  add to cart
+                </button>
+              </div>
+            </div>
+
+            <div class="col-md-12 mb-2">
+              <p class="text-capitalize price-text price-text-colored m-0 p-0">
+                {{ product.price }} EGP
+              </p>
+            </div>
+
+            <div class="col-md-12" (click)="removeProduct(product._id)">
+              <p
+                class="price-text text-capitalize m-0 p-0 text-danger cursor-pointer"
+              >
+                <i class="fa-solid fa-trash"></i>
+                remove
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+/* //title style */
+.cart-title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #212529;
+}
+
+/* //price text style */
+
+.price-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.price-text-colored {
+  color: var(--main-color);
+}
+
+/* //add box style */
+.add-box {
+  border: var(--light-green) 1px solid;
+  transition: all 0.3s;
+}
+
+.add-box:hover {
+  background-color: var(--main-color);
+  color: white;
+  border: 0;
+}

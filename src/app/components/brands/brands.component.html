@@ -1,0 +1,9 @@
+<div class="row g-4 text-center">
+  <h2 class="text-capitalize brand-title">all brands</h2>
+  <div class="col-md-3" *ngFor="let brand of brandsTypes">
+    <div class="brand-layer product">
+      <img [src]="brand.image" [alt]="brand.name" class="w-100" />
+      <p>{{ brand.name }}</p>
+    </div>
+  </div>
+</div>

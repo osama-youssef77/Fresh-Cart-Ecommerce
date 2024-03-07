@@ -1,0 +1,113 @@
+<div class="row bg-main-light py-5 rounded-5 justify-content-center">
+  <div class="col-md-11">
+    <div class="row">
+      <!-- //title -->
+      <div
+        class="mb-4 col-md-12 d-flex justify-content-between align-items-center flex-row"
+      >
+        <h3 class="cart-title text-capitalize">cart shop</h3>
+        <button
+          class="btn cart-btn-main text-capitalize"
+          [routerLink]="['/checkout', cartProducts._id]"
+        >
+          check out
+        </button>
+      </div>
+
+      <!-- //price -->
+      <div
+        class="mb-4 col-md-12 d-flex justify-content-between align-items-center"
+      >
+        <p class="text-capitalize price-text">
+          total price:
+          <span class="price-text-colored">{{
+            cartProducts.totalCartPrice
+          }}</span>
+        </p>
+        <p class="text-capitalize price-text">
+          total number of items:
+          <span class="price-text-colored">{{ cartItemsNum }}</span>
+        </p>
+      </div>
+
+      <!-- //product info-------------------------------------------- -->
+      <div
+        class="row mb-3 pb-3 border-bottom"
+        *ngFor="let product of cartProducts.products"
+      >
+        <div
+          class="col-md-12 d-flex justify-content-between align-items-center"
+        >
+          <div class="col-md-2">
+            <div class="cartImg-layer rounded-4">
+              <img
+                [src]="product.product.imageCover"
+                [alt]="product.product.title"
+                class="w-100 rounded-3"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-9">
+            <div
+              class="col-md-12 d-flex justify-content-between align-items-center"
+            >
+              <div class="col-md-8">
+                <p class="text-capitalize price-text m-0 p-0">
+                  {{ product.product.title }}
+                </p>
+              </div>
+              <div
+                class="col-md-3 d-flex justify-content-end align-items-center"
+              >
+                <button
+                  class="btn price-text count-box py-1"
+                  (click)="
+                    editSpecificProduct(product.count + 1, product.product._id)
+                  "
+                >
+                  +
+                </button>
+                <span class="price-text mx-3">{{ product.count }}</span>
+                <button
+                  class="btn price-text count-box py-1"
+                  (click)="
+                    editSpecificProduct(product.count - 1, product.product._id)
+                  "
+                >
+                  -
+                </button>
+              </div>
+            </div>
+
+            <div class="col-md-12 mb-2">
+              <p class="text-capitalize price-text m-0 p-0">
+                {{ product.price }} EGP
+              </p>
+            </div>
+
+            <div
+              class="col-md-12"
+              (click)="deleteSpecificProduct(product.product._id)"
+            >
+              <p
+                class="price-text text-capitalize m-0 p-0 text-danger cursor-pointer"
+              >
+                <i class="fa-solid fa-trash"></i>
+                remove
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-3">
+        <button class="btn text-capitalize clear-box" (click)="removeAll()">
+          clear your cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

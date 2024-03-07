@@ -1,0 +1,104 @@
+<h2 class="text-capitalize">fill the following:</h2>
+<form [formGroup]="detailsForm" (ngSubmit)="payment()">
+  <!-- --details validation and its alert-- -->
+  <div class="input-field my-3">
+    <label for="details" class="text-capitalize">details:</label>
+    <textarea
+      type="text"
+      class="form-control mb-2"
+      id="details"
+      formControlName="details"
+    ></textarea>
+
+    <!-- //alert box -->
+    <div
+      class="details-alert alert alert-danger"
+      *ngIf="
+        detailsForm.get('details')?.errors &&
+        detailsForm.get('details')?.touched
+      "
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="detailsForm.get('details')?.getError('required')"
+      >
+        - details is required
+      </p>
+    </div>
+  </div>
+
+  <!-- --phone validation and its alert-- -->
+  <div class="input-field my-3">
+    <label for="phone" class="text-capitalize">phone:</label>
+    <input
+      type="tel"
+      class="form-control mb-2"
+      id="phone"
+      formControlName="phone"
+      #phoneInput
+    />
+
+    <!-- //alert box -->
+    <div
+      class="phone-alert alert alert-danger"
+      *ngIf="
+        detailsForm.get('phone')?.errors &&
+        (detailsForm.get('phone')?.touched || phoneInput.value.length > 0)
+      "
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="detailsForm.get('phone')?.getError('required')"
+      >
+        - phone is required
+      </p>
+      <p
+        class="text-capitalize"
+        *ngIf="detailsForm.get('phone')?.getError('pattern')"
+      >
+        <span class="d-block">wrong phone. check the instructions:</span>
+        <span class="d-block"
+          >start with 010,011,012 or 015 then write 8 numbers</span
+        >
+      </p>
+    </div>
+  </div>
+
+  <!-- --city validation and its alert-- -->
+  <div class="input-field my-3">
+    <label for="city" class="text-capitalize">city:</label>
+    <input
+      type="text"
+      class="form-control mb-2"
+      id="city"
+      formControlName="city"
+    />
+
+    <!-- //alert box -->
+    <div
+      class="city-alert alert alert-danger"
+      *ngIf="
+        detailsForm.get('city')?.errors && detailsForm.get('city')?.touched
+      "
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="detailsForm.get('city')?.getError('required')"
+      >
+        - city is required
+      </p>
+    </div>
+  </div>
+
+  <!-- --submit button and its alrt boxe-- -->
+  <div class="row justify-content-end">
+    <div class="col-md-12 mb-3">
+      <button
+        class="btn-main text-capitalize w-100"
+        [disabled]="detailsForm.invalid"
+      >
+        pay now
+      </button>
+    </div>
+  </div>
+</form>

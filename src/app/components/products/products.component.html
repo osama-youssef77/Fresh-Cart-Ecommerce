@@ -1,0 +1,67 @@
+<!-- //searchInput -->
+<div class="row justify-content-center mb-5">
+  <div class="col-md-8">
+    <div class="search-layer">
+      <input
+        type="search"
+        placeholder="search..."
+        class="form-control"
+        [(ngModel)]="searchTerm"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- //products  -->
+<div class="row g-4">
+  <div
+    class="col-md-3"
+    *ngFor="let product of homeProducts | searchPipe : searchTerm"
+  >
+    <div class="layer product px-2 py-4">
+      <!-- //clickable part -->
+      <div
+        class="clickable-part cursor-pointer"
+        [routerLink]="['/details', product._id]"
+      >
+        <div class="product-img">
+          <img [src]="product.imageCover" [alt]="product.title" class="w-100" />
+        </div>
+
+        <div class="product-caption">
+          <p class="text-capitalize category-name">
+            {{ product.category.name }}
+          </p>
+          <p class="text-capitalize product-name">
+            {{ product.title.split(" ").slice(0, 2).join(" ") }}
+          </p>
+        </div>
+
+        <div class="product-price d-flex justify-content-between">
+          <p>{{ product.price }} EGP</p>
+          <p>
+            <i class="fa-solid fa-star rating-color"></i>
+            {{ product.ratingsAverage }}
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="product-button d-flex justify-content-between align-items-center"
+      >
+        <button
+          class="text-capitalize add-btn w-100"
+          (click)="addCartProduct(product._id)"
+        >
+          +add
+        </button>
+        <div
+          class="home-heart ms-3 cursor-pointer"
+          (click)="addWishlistProduct(product._id)"
+        >
+          <i class="fa-solid fa-heart like-btn"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

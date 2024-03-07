@@ -1,0 +1,158 @@
+/* -- Start global style----------------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+:root {
+  --main-color: #3fa43f;
+  --light-green: #1fc912;
+  --light-color: #f0f3f2;
+  --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+  --font-family: "Roboto", sans-serif;
+  --rating-color: #daa520;
+}
+
+body {
+  font-family: var(--font-family) !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* -- End global style----------------------------- */
+
+/* -- Start navBar style----------------------------- */
+.navbar li:hover a {
+  color: black !important;
+}
+
+.clicked-link {
+  /* color: black !important; */
+  background-color: var(--main-color) !important;
+  color: var(--light-color) !important;
+  border-radius: 5px;
+}
+
+/* -- End navBar style----------------------------- */
+
+/* -- Start Sections style----------------------------- */
+.py-sections {
+  padding-block: 120px;
+}
+
+/* -- End navBar style----------------------------- */
+
+/* -- Start buttons style----------------------------- */
+
+.btn-main {
+  background-color: var(--main-color);
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #fff;
+  /* cursor: pointer; */
+  font-size: 20px;
+
+  transition: background-color 0.5s;
+}
+
+/* -- End buttons style----------------------------- */
+
+/* start product div style---------------------- */
+
+/* //div style */
+.product {
+  border-radius: 5px;
+  border: solid 1px var(--main-color);
+  transition: box-shadow 0.5s;
+  overflow: hidden;
+}
+
+.product:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* //text style */
+.category-name {
+  color: var(--main-color);
+}
+
+.product-name {
+  font-weight: 500;
+}
+
+/* //product button style */
+
+.fixed-btn {
+  background-color: var(--light-green);
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.fixed-btn:hover {
+  background-color: var(--main-color);
+}
+
+.add-btn {
+  background-color: var(--main-color);
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: translateY(160%);
+
+  transition: all 0.2s;
+}
+
+.layer:hover button {
+  transform: translateY(0);
+}
+
+/* //icons style */
+.rating-color {
+  font-size: 20px;
+  color: var(--rating-color);
+}
+
+.like-btn {
+  font-size: 30px;
+}
+
+/* end product div style---------------------- */
+.nav-link {
+  transition: unset !important;
+}
+
+/* a,
+a:hover {
+  color: black;
+  text-decoration: none;
+} */
+
+/* already //used */
+.bg-main {
+  background-color: var(--main-color) !important;
+}
+
+/* //already used */
+.bg-main-light {
+  background-color: var(--light-color) !important;
+}
+
+.btn-main:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+.btn-main:disabled:hover {
+  background-color: #ccc;
+}
+.btn-main:hover {
+  background-color: #11bd11;
+}

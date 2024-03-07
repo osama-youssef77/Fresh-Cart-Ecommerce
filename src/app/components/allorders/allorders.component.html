@@ -1,0 +1,28 @@
+<div class="row bg-main-light py-5 rounded-5 justify-content-center">
+  <div class="col-md-11">
+    <div class="order-layer bg-white rounded-4 w-50 py-5 mx-auto text-center">
+      <div class="icon mb-4">
+        <i class="fa-regular fa-circle-check fa-beat done-icon"></i>
+      </div>
+
+      <div class="order-caption">
+        <p class="user-name text-capitalize m-0 p-0">
+          hey, {{ finalOrder.user.name }}
+        </p>
+        <p class="order-confirm text-capitalize">your order is confirmed</p>
+        <p class="user-name text-capitalize m-0 p-0">
+          you paid: {{ finalOrder.totalOrderPrice }} EGP
+        </p>
+        <p class="user-name text-capitalize m-0 p-0">
+          shipping city: {{ finalOrder.shippingAddress.city }}
+        </p>
+      </div>
+
+      <div class="home btn">
+        <button class="btn text-capitalize home-btn" (click)="goHome()">
+          go to home page
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

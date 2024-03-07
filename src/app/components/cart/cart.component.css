@@ -1,0 +1,43 @@
+/* //title style */
+.cart-title {
+  font-size: 32px;
+  font-weight: 500;
+  color: #212529;
+}
+
+/* //cart button style */
+.cart-btn-main {
+  padding: 10px 20px;
+  background-color: #0b5ed7;
+  color: white;
+  font-size: 20px;
+}
+
+/* //price text style */
+
+.price-text {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.price-text-colored {
+  color: var(--light-green);
+}
+
+/* //counter box style */
+.count-box {
+  border: var(--light-green) 1px solid;
+}
+
+/* //clear all button style */
+.clear-box {
+  font-size: 20px;
+  border: var(--light-green) 1px solid;
+  transition: all 0.3s;
+}
+
+.clear-box:hover {
+  background-color: red;
+  color: white;
+  border: 0;
+}

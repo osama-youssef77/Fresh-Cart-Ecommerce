@@ -1,0 +1,10 @@
+.category-title {
+  color: var(--main-color);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* //fixed size for img */
+.h-img {
+  height: 400px;
+}

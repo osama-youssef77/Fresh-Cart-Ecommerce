@@ -1,0 +1,42 @@
+<div class="row align-items-center">
+  <div class="col-md-4">
+    <div class="product-img">
+      <img
+        [src]="specificProduct.imageCover"
+        [alt]="specificProduct.title"
+        class="w-100"
+      />
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="caption">
+      <h3 class="text-capitalize sp-title">{{ specificProduct.title }}</h3>
+      <p class="text-capitalize">
+        {{ specificProduct.description }}
+      </p>
+    </div>
+
+    <div class="price d-flex justify-content-between">
+      <p>{{ specificProduct.price }}EGP</p>
+      <P>
+        <i class="fa-solid fa-star rating-color"></i>
+        {{ specificProduct.ratingsAverage }}
+      </P>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-between">
+      <button
+        class="text-capitalize fixed-btn w-75"
+        (click)="addCartProduct(specificProduct._id)"
+      >
+        +add
+      </button>
+      <div
+        class="heart-icon cursor-pointer"
+        (click)="addWishlistProduct(specificProduct._id)"
+      >
+        <i class="fa-solid fa-heart like-btn"></i>
+      </div>
+    </div>
+  </div>
+</div>

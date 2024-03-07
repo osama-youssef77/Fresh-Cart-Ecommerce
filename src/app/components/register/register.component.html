@@ -1,0 +1,210 @@
+<h2 class="text-capitalize">register now</h2>
+<form [formGroup]="registerForm" (ngSubmit)="setRegister()">
+  <!-- --name validation and its alrt-- -->
+  <div class="input-field my-3">
+    <label for="name" class="text-capitalize">name:</label>
+    <input
+      type="text"
+      class="form-control mb-2"
+      id="name"
+      formControlName="name"
+      #nameInput
+    />
+    <!-- //alert box -->
+    <div
+      class="name-alert alert alert-danger"
+      *ngIf="
+        registerForm.get('name')?.errors &&
+        (registerForm.get('name')?.touched || nameInput.value.length > 0)
+      "
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('name')?.getError('required')"
+      >
+        - name is required
+      </p>
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('name')?.getError('minlength')"
+      >
+        - minimum length is 3
+      </p>
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('name')?.getError('maxlength')"
+      >
+        - maximum length is 20
+      </p>
+    </div>
+  </div>
+
+  <!-- --email validation and its alert-- -->
+  <div class="input-field my-3">
+    <label for="email" class="text-capitalize">email:</label>
+    <input
+      type="email"
+      class="form-control mb-2"
+      id="email"
+      formControlName="email"
+      #emailInput
+    />
+
+    <!-- //alert box -->
+    <div
+      class="email-alert alert alert-danger"
+      *ngIf="
+        registerForm.get('email')?.errors &&
+        (registerForm.get('email')?.touched || emailInput.value.length > 0)
+      "
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('email')?.getError('required')"
+      >
+        - email is required
+      </p>
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('email')?.getError('email')"
+      >
+        - uncorrect email
+      </p>
+    </div>
+  </div>
+
+  <!-- --password validation and its alert-- -->
+  <div class="input-field my-3">
+    <label for="password" class="text-capitalize">password:</label>
+    <input
+      type="password"
+      class="form-control mb-2"
+      id="password"
+      formControlName="password"
+      #passwordInput
+    />
+
+    <!-- //alert box -->
+    <div
+      class="password-alert alert alert-danger"
+      *ngIf="
+        registerForm.get('password')?.errors &&
+        (registerForm.get('password')?.touched ||
+          passwordInput.value.length > 0)
+      "
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('password')?.getError('required')"
+      >
+        - password is required
+      </p>
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('password')?.getError('pattern')"
+      >
+        <span class="d-block">* one capital letter atleast</span>
+        <span class="d-block">* one small letter atleast</span>
+        <span class="d-block">* one digit number atleast</span>
+        <span class="d-block">* min length is 6</span>
+        <span class="d-block">* max length is 20</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- --repassword validation and its alert-- -->
+  <div class="input-field my-3">
+    <label for="repassword" class="text-capitalize">repassword:</label>
+    <input
+      type="password"
+      class="form-control mb-2"
+      id="repassword"
+      formControlName="rePassword"
+      #rePasswordInput
+    />
+
+    <!-- //alert box -->
+    <div
+      class="rePassword-alert alert alert-danger"
+      *ngIf="
+        registerForm.get('rePassword')?.errors &&
+        (registerForm.get('rePassword')?.touched ||
+          rePasswordInput.value.length > 0)
+      "
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('rePassword')?.getError('required')"
+      >
+        - rePassword is required
+      </p>
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('rePassword')?.getError('pattern')"
+      >
+        <span class="d-block">* one capital letter atleast</span>
+        <span class="d-block">* one small letter atleast</span>
+        <span class="d-block">* one digit number atleast</span>
+        <span class="d-block">* min length is 6</span>
+        <span class="d-block">* max length is 20</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- --phone validation and its alert-- -->
+  <div class="input-field my-3">
+    <label for="phone" class="text-capitalize">phone:</label>
+    <input
+      type="tel"
+      class="form-control mb-2"
+      id="phone"
+      formControlName="phone"
+      #phoneInput
+    />
+
+    <!-- //alert box -->
+    <div
+      class="phone-alert alert alert-danger"
+      *ngIf="
+        registerForm.get('phone')?.errors &&
+        (registerForm.get('phone')?.touched || phoneInput.value.length > 0)
+      "
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('phone')?.getError('required')"
+      >
+        - phone is required
+      </p>
+      <p
+        class="text-capitalize"
+        *ngIf="registerForm.get('phone')?.getError('pattern')"
+      >
+        <span class="d-block">wrong phone. check the instructions:</span>
+        <span class="d-block"
+          >start with 010,011,012 or 015 then write 8 numbers</span
+        >
+      </p>
+    </div>
+  </div>
+
+  <!-- --submit button and its alrt boxe-- -->
+  <div class="row justify-content-end">
+    <div class="col-md-3 mb-3">
+      <button
+        class="btn-main text-capitalize w-100"
+        [disabled]="registerForm.invalid"
+      >
+        <div class="spinner-icon d-inline-block" *ngIf="isLoading">
+          <i class="fas fa-spinner fa-spin me-2"></i>
+        </div>
+        register now
+      </button>
+    </div>
+    <div class="error-box">
+      <p *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </p>
+    </div>
+  </div>
+</form>

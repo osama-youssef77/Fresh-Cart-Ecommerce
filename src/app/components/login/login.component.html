@@ -1,0 +1,87 @@
+<h2 class="text-capitalize">login now</h2>
+<form [formGroup]="loginForm" (ngSubmit)="setlogin()">
+  <!-- --email validation and its alert-- -->
+  <div class="input-field my-3">
+    <label for="email" class="text-capitalize">email:</label>
+    <input
+      type="email"
+      class="form-control mb-2"
+      id="email"
+      formControlName="email"
+    />
+
+    <!-- //alert box -->
+    <div
+      class="email-alert alert alert-danger"
+      *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="loginForm.get('email')?.getError('required')"
+      >
+        - email is required
+      </p>
+      <p
+        class="text-capitalize"
+        *ngIf="loginForm.get('email')?.getError('email')"
+      >
+        - uncorrect email
+      </p>
+    </div>
+  </div>
+
+  <!-- --password-- -->
+  <div class="input-field my-3">
+    <label for="password" class="text-capitalize">password:</label>
+    <input
+      type="password"
+      class="form-control mb-2"
+      id="password"
+      formControlName="password"
+    />
+
+    <!-- //alert box -->
+    <div
+      class="password-alert alert alert-danger"
+      *ngIf="
+        loginForm.get('password')?.errors && loginForm.get('password')?.touched
+      "
+    >
+      <p
+        class="text-capitalize"
+        *ngIf="loginForm.get('password')?.getError('required')"
+      >
+        - password is required
+      </p>
+    </div>
+  </div>
+
+  <!-- --submit button and its alrt boxe-- -->
+  <div class="row justify-content-between align-items-center">
+    <div class="col-md-3">
+      <a
+        routerLink="../forgetPassword"
+        class="link-primary text-capitalize fs-2"
+        >forget password</a
+      >
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <button
+        class="btn-main text-capitalize w-100"
+        [disabled]="loginForm.invalid"
+      >
+        <div class="login-spinner d-inline-block" *ngIf="isLoading">
+          <i class="fas fa-spinner fa-spin me-2"></i>
+        </div>
+        login now
+      </button>
+    </div>
+
+    <div class="error-box">
+      <p *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+      </p>
+    </div>
+  </div>
+</form>

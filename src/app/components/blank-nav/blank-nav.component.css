@@ -1,0 +1,12 @@
+/* --navbar-style-- */
+.blankNav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+/* --badge style */
+.badge-icon {
+  transform: translate(50%, -50%);
+}

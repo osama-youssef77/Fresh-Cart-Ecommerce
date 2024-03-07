@@ -1,0 +1,31 @@
+/* //icon style */
+
+.done-icon {
+  font-size: 80px;
+  color: var(--main-color);
+}
+
+.user-name {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.order-confirm {
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.home-btn {
+  padding: 10px 20px;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--main-color);
+  transition: all 0.3s;
+}
+
+.home-btn:hover {
+  background-color: var(--main-color);
+  color: white;
+}
